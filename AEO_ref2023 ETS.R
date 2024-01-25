@@ -63,12 +63,9 @@ get_gridEF_ets <- function(region) {
       Grid_lb_MWh = round((`Carbon Dioxide (million short tons)`*2000*1e+06)/(`Total Generation`*1e+09/1000), digits = 2)) %>%
     select(Year, Grid_lb_MWh, Renewable_Share) 
   
-  
-  # Forecasting with limits 
-  # Source: https://robjhyndman.com/hyndsight/forecasting-within-limits/
+  # Create a time series data frame and use it for an ETS forecast
   ts_df <- ts(gridEF)[,"Grid_lb_MWh"]
-  
-  ets_fit <- ets(ts_df, lambda = 0)
+    ets_fit <- ets(ts_df, lambda = 0)
   ets_fcst <- forecast(ets_fit, h = 35) 
   ets_fcst_adj <- cbind.data.frame(
     "ets_mean" = as.vector(ets_fcst$mean),
