@@ -19,5 +19,5 @@ This script includes a couple of main steps that allow us to extrapolate grid em
 - Historical data: No historical data was found by electricity market module, so the forecast is based on a forecast. This may reduce the overall confidence in the results. 
 
   
-Figure1. A visualization of the final pathways
+Figure 1. A visualization of the final pathways
 <img src="AEO ETS Plot.PNG" width="90%" height="90%">
